@@ -6,7 +6,7 @@ scipy
 statsmodels
 pyyaml
 setuptools
-twine
-wheels
+# twine
+# wheels
 dvc
 dvc-gdrive
