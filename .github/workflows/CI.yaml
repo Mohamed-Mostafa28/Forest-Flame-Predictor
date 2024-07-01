@@ -2,7 +2,7 @@ name: CI
 on: [push]
 permissions: write-all
 jobs:
-  run-our-workfolw:
+  Run-Workfolw:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,6 +35,8 @@ jobs:
           python ./algerianForestFires/src/training.py
           
       - name: Create report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
    
           echo "## Metrics" > report.md  
