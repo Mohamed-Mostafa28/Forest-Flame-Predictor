@@ -38,6 +38,8 @@ jobs:
       - name: dvc pipeline
         run: |     
           dvc init  
+          git rm -r --cached 'data/processed/prepaired_data.csv'
+          git commit -m "stop tracking data/processed/prepaired_data.csv" 
           dvc repro
           
           # python ./algerianForestFires/src/preprocessing.py
