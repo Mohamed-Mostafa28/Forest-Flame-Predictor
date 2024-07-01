@@ -36,6 +36,8 @@ jobs:
           python template.py
 
       - name: dvc pipeline
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |     
           dvc init  
           git rm -r --cached 'data/processed/prepaired_data.csv'
