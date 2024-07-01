@@ -69,8 +69,8 @@ jobs:
           git push origin main
 
  
-       - name: dvc pipeline
-        env:
+      - name: dvc pipeline
+         env:
           REPO_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |     
           # dvc init  
