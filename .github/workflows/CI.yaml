@@ -31,9 +31,13 @@ jobs:
           pip install -r requirements.txt
 
       - name: run project
-        run: |        
+        run: |     
           pip install .
           python template.py
+
+      - name: dvc pipeline
+        run: |     
+          dvc init
           dvc repro
           
           # python ./algerianForestFires/src/preprocessing.py
