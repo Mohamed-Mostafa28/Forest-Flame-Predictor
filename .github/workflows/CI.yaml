@@ -53,7 +53,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}
-          git checkout main
+          git checkout dev
 
       - name: Initialize DVC
         run: |
