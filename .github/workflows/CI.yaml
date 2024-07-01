@@ -35,18 +35,59 @@ jobs:
           pip install .
           python template.py
 
-      - name: dvc pipeline
+      # - name: dvc pipeline
+      #   env:
+      #     REPO_TOKEN: ${{ secrets.GH_TOKEN }}
+      #   run: |     
+      #     dvc init  
+      #     git rm -r --cached 'data/processed/prepaired_data.csv'
+      #     git commit -m "stop tracking data/processed/prepaired_data.csv" 
+      #     dvc repro
+          
+      #     # python ./algerianForestFires/src/preprocessing.py
+      #     # python ./algerianForestFires/src/training.py
+          
+
+      - name: Authenticate with GitHub
         env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}
+          git checkout main
+
+      - name: Initialize DVC
+        run: |
+          dvc init
+          git add .dvc .gitignore
+          git commit -m "Initialize DVC"
+
+      - name: Add data to DVC
+        run: |
+          dvc add data/processed/prepared_data.csv
+          git add data/processed/prepared_data.csv.dvc .gitignore
+          git commit -m "Track prepared_data.csv with DVC"
+          git push origin main
+
+ 
+       - name: dvc pipeline
+        env:
+          REPO_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |     
-          dvc init  
-          git rm -r --cached 'data/processed/prepaired_data.csv'
-          git commit -m "stop tracking data/processed/prepaired_data.csv" 
+          # dvc init  
+          # git rm -r --cached 'data/processed/prepaired_data.csv'
+          # git commit -m "stop tracking data/processed/prepaired_data.csv" 
           dvc repro
           
           # python ./algerianForestFires/src/preprocessing.py
           # python ./algerianForestFires/src/training.py
-          
+
+
+
+
+
+
+
+
       - name: Create report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
