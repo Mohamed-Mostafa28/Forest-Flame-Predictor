@@ -70,7 +70,7 @@ jobs:
 
  
       - name: dvc pipeline
-         env:
+        env:
           REPO_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |     
           # dvc init  
