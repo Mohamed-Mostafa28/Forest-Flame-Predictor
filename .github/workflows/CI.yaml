@@ -76,6 +76,8 @@ jobs:
           # dvc init  
           # git rm -r --cached 'data/processed/prepaired_data.csv'
           # git commit -m "stop tracking data/processed/prepaired_data.csv" 
+          git config --global user.email "mohamedmostafa012345012345@gmail.com"
+          git config --global user.name "Mohamed_Mostafa"
           dvc repro
           
           # python ./algerianForestFires/src/preprocessing.py
