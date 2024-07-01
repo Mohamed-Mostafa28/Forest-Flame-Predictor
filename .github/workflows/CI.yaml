@@ -36,11 +36,11 @@ jobs:
           
       - name: Create report
         run: |
-          cd ./output
+   
           echo "## Metrics" > report.md  
-          cat RandomForest_model_info.txt >> report.md
+          cat ./output/info/RandomForest_model_info.txt >> report.md
           echo "## Confusion Matrix" >> report.md
-          echo '![](RandomForest_confusion_matrix.png "Confusion Matrix")' >> report.md
+          echo '![](./output/images/RandomForest_confusion_matrix.png "Confusion Matrix")' >> report.md
           cml comment create report.md
 
 
