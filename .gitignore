@@ -4,3 +4,8 @@
 /algerianForestFires.egg-info
 /*.csv
 /output
+/data
+/data/source
+/data/processed
+/data/source/Algerian_forest_fires_dataset_UPDATE.csv
+/data/processed/prepaired_data.csv
