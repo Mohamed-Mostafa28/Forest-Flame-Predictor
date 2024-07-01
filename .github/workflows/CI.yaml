@@ -2,7 +2,7 @@ name: CI
 on: [push]
 permissions: write-all
 jobs:
-  Run-Workfolw:
+  Run-Workflow:
     runs-on: ubuntu-latest
 
     steps:

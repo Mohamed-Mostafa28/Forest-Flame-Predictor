@@ -1,0 +1,20 @@
+stages:
+  run_prepare:
+    cmd: python ./algerianForestFires/src/preprocessing.py
+    deps:
+      - params.yml
+      - ./algerianForestFires/src/preprocessing.py
+      - data/source/Algerian_forest_fires_dataset_UPDATE.csv      
+    outs:
+      - data/processed/prepaired_data.csv
+
+  run_training:
+    cmd: python ./algerianForestFires/src/training.py
+    deps:
+      - params.yml
+      - ./algerianForestFires/src/training.py
+      - data/processed/prepaired_data.csv
+    outs:
+      - output/models/RandomForest_model.pkl
+      - output/info/RandomForest_model_info.txt
+      - output/images/RandomForest_confusion_matrix.png
