@@ -5,8 +5,8 @@ stages:
     deps:
     - path: ./algerianForestFires/src/preprocessing.py
       hash: md5
-      md5: 33dd8ddb49bb99247c84e6960cb992c0
-      size: 1682
+      md5: bfe8e1819e68d6bca418fbae8cc020c6
+      size: 1685
     - path: data/source/Algerian_forest_fires_dataset_UPDATE.csv
       hash: md5
       md5: f5454b4ef6188cbad1c0a6a3d4fc5098
@@ -25,8 +25,8 @@ stages:
     deps:
     - path: ./algerianForestFires/src/training.py
       hash: md5
-      md5: e376025ed421806b1f3d0727eec90e1f
-      size: 3763
+      md5: 3bfeee1ad60454e5885083ae9983572f
+      size: 3761
     - path: data/processed/prepaired_data.csv
       hash: md5
       md5: 4ab0674563a9eaf2a094e7d31f14f9f5

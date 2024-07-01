@@ -3,6 +3,7 @@ from algerianForestFires.utiles.Utilities import load_params
 import pandas as pd
 
 
+
 class DataPreprocessor:
     def __init__(self,params):      
         self.params=params  
@@ -10,7 +11,7 @@ class DataPreprocessor:
         self.cleaning_data()    
         self.encoding_data()
         self.dump_prepaired_data()
-        print("Data processing done")
+        print("Data processing donee")
     
     
     def load_data(self):
