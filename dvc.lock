@@ -1,0 +1,50 @@
+schema: '2.0'
+stages:
+  run_prepare:
+    cmd: python ./algerianForestFires/src/preprocessing.py
+    deps:
+    - path: ./algerianForestFires/src/preprocessing.py
+      hash: md5
+      md5: 33dd8ddb49bb99247c84e6960cb992c0
+      size: 1682
+    - path: data/source/Algerian_forest_fires_dataset_UPDATE.csv
+      hash: md5
+      md5: f5454b4ef6188cbad1c0a6a3d4fc5098
+      size: 20783
+    - path: params.yml
+      hash: md5
+      md5: a529e365bd1462eaaca2dd761bfc379e
+      size: 644
+    outs:
+    - path: data/processed/prepaired_data.csv
+      hash: md5
+      md5: 4ab0674563a9eaf2a094e7d31f14f9f5
+      size: 11621
+  run_training:
+    cmd: python ./algerianForestFires/src/training.py
+    deps:
+    - path: ./algerianForestFires/src/training.py
+      hash: md5
+      md5: e376025ed421806b1f3d0727eec90e1f
+      size: 3763
+    - path: data/processed/prepaired_data.csv
+      hash: md5
+      md5: 4ab0674563a9eaf2a094e7d31f14f9f5
+      size: 11621
+    - path: params.yml
+      hash: md5
+      md5: a529e365bd1462eaaca2dd761bfc379e
+      size: 644
+    outs:
+    - path: output/images/RandomForest_confusion_matrix.png
+      hash: md5
+      md5: 47ed17e983d170d1c3c10349ba853b6f
+      size: 162647
+    - path: output/info/RandomForest_model_info.txt
+      hash: md5
+      md5: 1a80945d5361b522cffa44aee341ceac
+      size: 601
+    - path: output/models/RandomForest_model.pkl
+      hash: md5
+      md5: e6e943dca0367f63cc21d9aeac355afd
+      size: 254317
