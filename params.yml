@@ -1,0 +1,28 @@
+source_data_params:
+    source_data_path : "data/source"
+    source_data_name : "Algerian_forest_fires_dataset_UPDATE.csv"
+
+
+processed_data_params:
+    processed_data_path : "data/processed"
+    processed_data_name : "prepaired_data.csv"
+
+split_params:
+    test_size : 0.2
+    random_state : 42
+
+model_params :   
+    model_name : "RandomForest"
+    param:
+        n_estimators: 200
+        max_depth: 20
+        min_samples_split: 2
+        min_samples_leaf: 1
+        random_state: 20
+
+dump_outputs:
+    models_dump_path : "output/models"
+    images_dump_path : "output/images"
+    info_dump_path : "output/info"
+
+ 

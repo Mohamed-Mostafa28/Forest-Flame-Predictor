@@ -1,0 +1,12 @@
+numpy
+pandas
+seaborn
+scikit-learn
+scipy
+statsmodels
+pyyaml
+setuptools
+twine
+wheels
+dvc
+dvc-gdrive
