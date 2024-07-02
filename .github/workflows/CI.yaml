@@ -35,71 +35,24 @@ jobs:
           pip install .
           python template.py
 
-      # - name: dvc pipeline
-      #   env:
-      #     REPO_TOKEN: ${{ secrets.GH_TOKEN }}
-      #   run: |     
-      #     dvc init  
-      #     git rm -r --cached 'data/processed/prepaired_data.csv'
-      #     git commit -m "stop tracking data/processed/prepaired_data.csv" 
-      #     dvc repro
-          
-      #     # python ./algerianForestFires/src/preprocessing.py
-      #     # python ./algerianForestFires/src/training.py
-          
-
-      # - name: Authenticate with GitHub
-      #   env:
-      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      #   run: |
-      #     git config --global user.email "mohamedmostafa012345012345@gmail.com"
-      #     git config --global user.name "Mohamed_Mostafa"
-      #     git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}
-      #     git checkout dev
-
-      # - name: Initialize DVC
-      #   run: |
-      #     dvc init
-      #     git add .dvc .gitignore
-      #     git commit -m "Initialize DVC"
-
-      # - name: Add data to DVC
-      #   run: |
-      #     dvc add data/processed/prepaired_data.csv
-      #     git add data/processed/prepaired_data.csv.dvc .gitignore
-      #     git commit -m "Track prepaired_data.csv with DVC"
-      #     git push origin main
-
-
       - name: dvc pull
         env:
           GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
         run: |       
           dvc pull ./data/source/Algerian_forest_fires_dataset_UPDATE.csv --run-cache
 
-
       - name: dvc pipeline
         env:
           REPO_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |     
-        
-          dvc repro
-          
+        run: |           
+          dvc repro      
           # python ./algerianForestFires/src/preprocessing.py
           # python ./algerianForestFires/src/training.py
-
-
-
-
-
-
-
 
       - name: Create report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-   
+        run: |  
           echo "## Metrics" > report.md  
           cat ./output/info/RandomForest_model_info.txt >> report.md
           echo "## Confusion Matrix" >> report.md
