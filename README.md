@@ -1,6 +1,7 @@
 # 🌲🔥 Forest Flame Predictor 🔥🌲
 
-Forest Flame Predictor is a machine learning project designed to predict forest fires in Algeria using the Algerian Forest Fire dataset. This project leverages DVC for data version control and GitHub Actions for continuous integration and deployment.
+Forest Flame Predictor is a machine learning project designed to predict forest fires in Algeria using the Algerian Forest Fire dataset.<br>
+This project leverages DVC for data version control and GitHub Actions for continuous integration and deployment.
 
 ## 📜 Project Description
 
@@ -8,7 +9,7 @@ This project aims to develop a predictive model for forest fires using the Alger
 
 ## 📊 Dataset
 
-The dataset, provided by the UCI Machine Learning Repository, includes various meteorological features and fire occurrences. It is located in the `data/source/Algerian_forest_fires_dataset_UPDATE.csv` file.
+The dataset, provided by the UCI Machine Learning Repository, includes various meteorological features and fire occurrences. It is located in the `data/source/Algerian_forest_fires_dataset_UPDATE.csv` file.<br>
 URL: https://archive.ics.uci.edu/dataset/547/algerian+forest+fires+dataset
 
 ## 🗂 Project Structure
