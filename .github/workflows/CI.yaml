@@ -70,7 +70,14 @@ jobs:
       #     git commit -m "Track prepaired_data.csv with DVC"
       #     git push origin main
 
- 
+
+      - name: dvc pull
+        env:
+          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
+        run: |       
+          dvc pull /data/source/Algerian_forest_fires_dataset_UPDATE.csv --run-cache
+
+
       - name: dvc pipeline
         env:
           REPO_TOKEN: ${{ secrets.GH_TOKEN }}

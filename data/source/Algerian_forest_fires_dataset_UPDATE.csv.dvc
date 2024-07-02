@@ -1,0 +1,5 @@
+outs:
+- md5: f5454b4ef6188cbad1c0a6a3d4fc5098
+  size: 20783
+  hash: md5
+  path: Algerian_forest_fires_dataset_UPDATE.csv
